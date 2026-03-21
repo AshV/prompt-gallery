@@ -1,4 +1,4 @@
-baseURL = 'https://www.ashishvishwakarma.com/pg/'
+baseURL = 'https://www.ashishvishwakarma.com/prompt-gallery/'
 languageCode = 'en-us'
 title = "AV's Prompt Gallery"
 theme = 'hugo-theme-dream'
