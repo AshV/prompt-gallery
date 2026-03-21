@@ -1,6 +1,6 @@
 ---
 title: "Urban Golden Hour"
-date: 2026-03-22T00:00:01+05:30
+date: 2026-03-22T00:03:01+05:30
 draft: false
 subtitle: ""
 tags: ["men", "gemini", "cinematic"]
