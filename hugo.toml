@@ -1,0 +1,19 @@
+baseURL = 'https://www.ashishvishwakarma.com/pg/'
+languageCode = 'en-us'
+title = "AV's Prompt Gallery"
+theme = 'hugo-theme-dream'
+
+[params]
+  author = "Ashish Vishwakarma"
+  motto = "Prompt Gallery"
+  avatar = "images/logo.png"
+  showSummaryCoverInPost = true
+  tags = true
+  categories = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[params.Advanced]
+  customCSS = ["css/custom.css"]

@@ -1,0 +1,21 @@
+<div class="join grid grid-cols-2">
+  {{ if .paginator.HasPrev }}
+  <a href="{{ .paginator.Prev.URL }}" title=Previous page class="join-item btn btn-outline btn-sm">
+    Previous page
+  </a>
+  {{ else }}
+  <button class="join-item btn btn-outline btn-sm" disabled>
+    Previous page
+  </button>
+  {{ end }}
+  {{ if .paginator.HasNext }}
+  <a href="{{ .paginator.Next.URL }}" title="Next page" class="join-item btn btn-outline btn-sm">
+    Next page
+  </a>
+  {{ else }}
+  <button class="join-item btn btn-outline btn-sm" disabled>
+    Next page
+  </button>
+  {{ end }}
+</div>
+

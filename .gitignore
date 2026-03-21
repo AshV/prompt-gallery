@@ -1,0 +1,16 @@
+# Generated files by Hugo
+public/
+resources/
+.hugo_build.lock
+
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node modules (just in case they are used with PostCSS later)
+node_modules/
+
+# Local configuration overrides
+config.local.toml
+hugo.local.toml

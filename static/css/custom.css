@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --grad-1: rgba(99, 102, 241, 0.3);
+  --grad-2: rgba(236, 72, 153, 0.3);
+  --grad-3: rgba(59, 130, 246, 0.3);
+  --grad-4: rgba(139, 92, 246, 0.3);
+  --primary-glow: rgba(99, 102, 241, 0.25);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+html[data-theme='dark'] {
+  --grad-1: rgba(99, 102, 241, 0.15);
+  --grad-2: rgba(236, 72, 153, 0.15);
+  --grad-3: rgba(59, 130, 246, 0.15);
+  --grad-4: rgba(139, 92, 246, 0.15);
+  --glass-bg: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+  --primary-glow: rgba(99, 102, 241, 0.15);
+}
+
+/* Core breathing animation */
+@keyframes gradientBreath {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shiny floating orbs animations */
+@keyframes floatOrb1 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10vw, -10vh) scale(1.1); }
+  66% { transform: translate(-5vw, 15vh) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes floatOrb2 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10vw, 15vh) scale(1.2); }
+  66% { transform: translate(15vw, -5vh) scale(0.8); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+body {
+  font-family: 'Outfit', sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#dream-global-bg {
+  /* Using background-color and background-image avoids shorthand !important bug with background-position */
+  background-color: var(--glass-bg) !important;
+  background-image: linear-gradient(-45deg, var(--grad-1), var(--grad-2), var(--grad-3), var(--grad-4)) !important;
+  background-size: 400% 400% !important;
+  animation: gradientBreath 15s ease infinite !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -9999 !important;
+  overflow: hidden !important;
+}
+
+/* Shiny modern Glowing Orbs */
+#dream-global-bg::before,
+#dream-global-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px); /* Creates the shiny glow effect */
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#dream-global-bg::before {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, var(--grad-4), transparent 70%);
+  animation: floatOrb1 20s ease-in-out infinite !important;
+}
+
+#dream-global-bg::after {
+  bottom: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, var(--grad-1), transparent 70%);
+  animation: floatOrb2 25s ease-in-out infinite !important;
+}
+
+/* Glassmorphism Cards */
+.card, .dream-card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  border-radius: 24px !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  overflow: hidden;
+}
+
+/* Immersive Hover Effects */
+.card:hover, .dream-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.3) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+}
+
+/* Modern Typography Emphasis */
+.card-title, h1, h2, h3 {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  transition: all 0.3s ease;
+}
+
+.card:hover .card-title {
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Redesigned Tag Badges */
+.badge {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15)) !important;
+  border: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(4px);
+  font-weight: 600 !important;
+  padding: 14px 18px !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.badge:hover {
+  transform: scale(1.1) translateY(-2px);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3)) !important;
+  border-color: rgba(255,255,255,0.6) !important;
+}

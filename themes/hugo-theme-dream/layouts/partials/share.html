@@ -1,0 +1,41 @@
+<div class="flex items-center gap-2">
+  <!-- slot: post-share-left.html -->
+  {{ if fileExists "layouts/partials/post-share-left.html" }}
+    {{ partial "post-share-left.html" . }}
+  {{ end }}
+
+  {{ $shares := slice "x" "facebook" "whatsapp" "linkedin" }}
+  {{ $shareTitles := dict
+    "x" "X"
+    "facebook" "Facebook"
+    "whatsapp" "WhatsApp"
+    "linkedin" "LinkedIn"
+  }}
+  {{ $shareLinks := dict
+    "x" (print "https://x.com/intent/post?text=" .Title "&url=" .Permalink)
+    "facebook" (print "https://facebook.com/sharer/sharer.php?u=" .Permalink)
+    "whatsapp" (print "https://wa.me/?text=" .Title " " .Permalink)
+    "linkedin" (print "https://www.linkedin.com/sharing/share-offsite/?url=" .Permalink)
+  }}
+  {{ if site.Params.reorderShares }}
+    {{ $shares = site.Params.reorderShares }}
+  {{ end }}
+  {{ range $shares }}
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="{{ index $shareLinks . }}" target="_blank" rel="noopener noreferrer"
+      title="Share on {{ index $shareTitles . }}">
+      <ion-icon class="group-hover:text-primary-content" name="logo-{{ . }}"></ion-icon>
+    </a>
+  {{ end }}
+
+  <div class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+    title="Copy Link"
+    onclick="navigator.clipboard.writeText('{{ .Permalink }}'); alert('Link copied!');">
+    <ion-icon class="group-hover:text-primary-content" name="link"></ion-icon>
+  </div>
+
+  <!-- slot: post-share-right.html -->
+  {{ if fileExists "layouts/partials/post-share-right.html" }}
+    {{ partial "post-share-right.html" . }}
+  {{ end }}
+</div>
