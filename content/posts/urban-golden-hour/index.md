@@ -2,8 +2,8 @@
 title: "Urban Golden Hour"
 date: 2026-03-22T00:03:01+05:30
 draft: false
-subtitle: ""
-tags: ["men", "gemini", "cinematic"]
+description: "AI prompt for an urban golden hour portrait — a man in a navy turtleneck and overcoat on a city street with warm sunset bokeh and editorial fashion styling."
+tags: ["men", "gemini", "golden-hour", "urban", "street", "portrait", "fashion", "sunset"]
 categories: ["photography"]
 cover: "urban-golden-hour.jpeg"
 ---

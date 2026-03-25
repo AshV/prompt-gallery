@@ -2,8 +2,8 @@
 title: "Cinematic Vintage Film"
 date: 2026-03-22T00:00:01+05:30
 draft: false
-subtitle: ""
-tags: ["men", "gemini", "cinematic"]
+description: "AI prompt for a cinematic vintage film portrait — a man in a tweed blazer inside a warmly lit luxury cafe, color graded like a 35mm Hollywood film."
+tags: ["men", "gemini", "cinematic", "vintage", "film", "cafe", "portrait", "tweed"]
 categories: ["photography"]
 cover: "cinematic-vintage-film.jpeg"
 ---

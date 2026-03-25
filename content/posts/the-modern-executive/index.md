@@ -2,8 +2,8 @@
 title: "The Modern Executive"
 date: 2026-03-22T00:02:01+05:30
 draft: false
-subtitle: ""
-tags: ["men", "gemini", "cinematic"]
+description: "AI prompt for a modern executive headshot — a man in a tailored charcoal grey suit with cinematic rim lighting in a corporate office setting."
+tags: ["men", "gemini", "corporate", "executive", "headshot", "portrait", "suit", "professional"]
 categories: ["photography"]
 cover: "the-modern-executive.jpeg"
 ---

@@ -2,8 +2,8 @@
 title: "Moody Studio Editorial"
 date: 2026-03-23T00:05:01+05:30
 draft: false
-subtitle: ""
-tags: ["men", "gemini", "cinematic"]
+description: "AI prompt for a moody studio editorial portrait — dramatic Rembrandt lighting, dark textured background, and high-fashion minimalist styling."
+tags: ["men", "gemini", "editorial", "studio", "moody", "portrait", "fashion", "dramatic-lighting"]
 categories: ["photography"]
 cover: "moody-studio-editorial.jpeg"
 ---

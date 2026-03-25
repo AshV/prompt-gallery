@@ -2,8 +2,8 @@
 title: "High-End Evening Luxury"
 date: 2026-03-22T00:04:01+05:30
 draft: false
-subtitle: ""
-tags: ["men", "gemini", "cinematic"]
+description: "AI prompt for a high-end evening luxury portrait — a man in a black velvet tuxedo inside an upscale lounge with warm ambient lighting and crystal reflections."
+tags: ["men", "gemini", "cinematic", "luxury", "tuxedo", "evening", "portrait", "lounge"]
 categories: ["photography"]
 cover: "high-end-evening-luxury.jpeg"
 ---

@@ -2,11 +2,14 @@ baseURL = 'https://www.ashishvishwakarma.com/prompt-gallery/'
 languageCode = 'en-us'
 title = "AV's Prompt Gallery"
 theme = 'hugo-theme-dream'
+enableRobotsTXT = true
 
 [params]
   author = "Ashish Vishwakarma"
+  description = "A curated collection of AI image generation prompts for cinematic portraits, editorial photography, and creative visual styles."
   motto = "Prompt Gallery"
   avatar = "images/logo.png"
+  headerTitle = "AV's Prompt Gallery"
   showSummaryCoverInPost = true
   tags = true
   categories = true
@@ -14,6 +17,10 @@ theme = 'hugo-theme-dream'
 [taxonomies]
   tag = "tags"
   category = "categories"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
 
 [params.Advanced]
   customCSS = ["css/custom.css"]
