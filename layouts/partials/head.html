@@ -1,10 +1,8 @@
-{{ with site.Params.favicon }}
-  {{ if hasPrefix . "<link" }}
-    {{ . | safeHTML }}
-  {{ else }}
-    <link href="{{ . | relURL }}" rel="icon" type="image/x-icon" />
-  {{ end }}
-{{ end }}
+<link rel="icon" type="image/png" sizes="96x96" href="{{ "favicon-96x96.png" | relURL }}" />
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}" />
+<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}" />
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
 
 <link rel="canonical" href="{{ .Permalink }}" />
 
@@ -40,8 +38,8 @@
 
 <!-- Open Graph -->
 {{ template "_internal/opengraph.html" . }}
-{{ if .Params.cover }}
-<meta property="og:image" content="{{ .Params.cover | absURL }}" />
+{{ if and .Params.cover (.Resources.Get .Params.cover) }}
+<meta property="og:image" content="{{ (.Resources.Get .Params.cover).Permalink }}" />
 <meta property="og:title" content="{{ .Title }}" />
 {{ else if site.Params.avatar }}
 <meta property="og:image" content="{{ site.Params.avatar | absURL }}" />
@@ -49,8 +47,8 @@
 
 <!-- Twitter Cards -->
 {{ template "_internal/twitter_cards.html" . }}
-{{ if .Params.cover }}
-<meta name="twitter:image" content="{{ .Params.cover | absURL }}" />
+{{ if and .Params.cover (.Resources.Get .Params.cover) }}
+<meta name="twitter:image" content="{{ (.Resources.Get .Params.cover).Permalink }}" />
 <meta name="twitter:title" content="{{ .Title }}" />
 {{ end }}
 
