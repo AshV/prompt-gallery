@@ -144,3 +144,24 @@ body {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3)) !important;
   border-color: rgba(255,255,255,0.6) !important;
 }
+
+/* Suggested Posts Section */
+.suggested-posts {
+  margin-top: 4rem;
+  padding: 0 1rem;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.suggested-posts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .suggested-posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
