@@ -89,7 +89,7 @@
         </div>
 
         <div class="mt-12 mb-8 flex justify-center">
-          <button id="copy-prompt-btn" class="btn btn-primary rounded-full px-8 shadow-lg hover:scale-105 transition-transform">
+          <button id="copy-prompt-btn" class="btn glass-btn rounded-full px-8 shadow-lg hover:scale-105 transition-transform border-none">
             <ion-icon name="copy" class="mr-2 text-xl"></ion-icon>
             Copy Prompt
           </button>
@@ -103,19 +103,16 @@
               var btn = document.getElementById('copy-prompt-btn');
               var originalHTML = btn.innerHTML;
               btn.innerHTML = '<ion-icon name="checkmark" class="mr-2 text-xl"></ion-icon> Copied!';
-              btn.classList.replace('btn-primary', 'btn-success');
+              btn.classList.replace('glass-btn', 'btn-success');
               
-              var toast = document.createElement('div');
-              toast.className = 'toast toast-center toast-bottom sm:toast-end z-50 transition-opacity duration-300';
-              toast.innerHTML = '<div class="alert alert-success shadow-lg text-success-content font-bold px-6 py-4"><span>Copied!</span></div>';
-              document.body.appendChild(toast);
-              
+              window.location.hash = 'explode';
+              document.getElementById('boooom').setAttribute('src', '{{ "img/explode-med.gif" | relURL }}');
+
               setTimeout(function() {
-                toast.style.opacity = '0';
-                setTimeout(function() { toast.remove(); }, 300);
+                window.location.hash = 'close';
                 btn.innerHTML = originalHTML;
-                btn.classList.replace('btn-success', 'btn-primary');
-              }, 2000);
+                btn.classList.replace('btn-success', 'glass-btn');
+              }, 1500);
             }).catch(function(err) {
               console.error('Failed to copy text: ', err);
             });
@@ -181,6 +178,17 @@
   </div>
 </div>
 {{- end -}}
+
+<!-- The Explodal Modal Structure -->
+<div id="explode" class="ui--modal">
+  <div class="btn glass-btn border-none shadow-lg px-8 py-4 rounded-full pointer-events-none text-white font-bold text-lg hover:scale-100">
+    <ion-icon name="checkmark" class="mr-2 text-2xl"></ion-icon> Copied!
+  </div>
+  <div class="bg">
+    <img src="{{ "img/explode-med.gif" | relURL }}" id="boooom">
+  </div>
+</div>
+
 {{ end }}
 
 {{ define "js" }}

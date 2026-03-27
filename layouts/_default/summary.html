@@ -1,0 +1,55 @@
+<a class="card shadow-xl cursor-pointer dark:border dark:border-base-content/30 hover:scale-105 transition-transform" href="{{ .RelPermalink }}" style="background: var(--glass-bg) !important;">
+  {{ if .Params.cover }}
+  <figure>
+    {{ with .Resources.Get .Params.cover }}
+    {{ if eq .MediaType.SubType "svg" }}
+      <img src="{{ .RelPermalink }}" alt="{{ .Title }}" />
+    {{ else }}
+      {{ $webp := .Resize (printf "%dx%d webp" .Width .Height) }}
+      <picture>
+        <source srcset="{{ $webp.RelPermalink }}" type="image/webp" />
+        <img src="{{ .RelPermalink }}" alt="{{ .Title }}" />
+      </picture>
+    {{ end }}
+    {{ else }}
+    <img src="{{ .Params.cover }}" alt="{{ .Title }}" />
+    {{ end }}
+  </figure>
+  {{ else if not site.Params.noDefaultSummaryCover }}
+  <figure>
+    {{ with resources.Get (printf "images/default%d.jpg" (index (seq 4 | shuffle) 0)) }}
+    {{ $webp := .Resize (printf "%dx%d webp" .Width .Height) }}
+    <picture>
+      <source srcset="{{ $webp.RelPermalink }}" type="image/webp" />
+      <img src="{{ .RelPermalink }}" alt="{{ .Title }}" />
+    </picture>
+    {{ end }}
+  </figure>
+  {{ end }}
+
+  <div class="card-body">
+    <h2 class="card-title">{{ .Title }}</h2>
+    {{ if .Params.subtitle }}
+    <p class="text-sm text-base-content/80">{{ .Params.subtitle }}</p>
+    {{ end }}
+
+    <p class="date text-base-content/60">
+    {{ if site.Params.Experimental.jsDate }}
+      <span data-format="luxon">{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</span>
+    {{ else }}
+      {{ .Date | time.Format "Monday, Jan 2, 2006" }}
+    {{ end }}
+    </p>
+
+    <div class="card-actions justify-between items-center mt-4">
+      <div class="flex flex-wrap gap-2">
+        {{ range .Params.categories }}
+        <span class="badge">{{ . }}</span>
+        {{ end }}
+        {{ range .Params.tags }}
+        <span class="badge">#{{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</a>

@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
-  --grad-1: rgba(99, 102, 241, 0.3);
-  --grad-2: rgba(236, 72, 153, 0.3);
-  --grad-3: rgba(59, 130, 246, 0.3);
-  --grad-4: rgba(139, 92, 246, 0.3);
-  --primary-glow: rgba(99, 102, 241, 0.25);
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  --grad-1: rgba(99, 102, 241, 0.4);
+  --grad-2: rgba(236, 72, 153, 0.4);
+  --grad-3: rgba(59, 130, 246, 0.4);
+  --grad-4: rgba(139, 92, 246, 0.4);
+  --primary-glow: rgba(99, 102, 241, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
 html[data-theme='dark'] {
-  --grad-1: rgba(99, 102, 241, 0.15);
-  --grad-2: rgba(236, 72, 153, 0.15);
-  --grad-3: rgba(59, 130, 246, 0.15);
-  --grad-4: rgba(139, 92, 246, 0.15);
-  --glass-bg: rgba(15, 23, 42, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-  --primary-glow: rgba(99, 102, 241, 0.15);
+  --grad-1: rgba(99, 102, 241, 0.25);
+  --grad-2: rgba(236, 72, 153, 0.25);
+  --grad-3: rgba(59, 130, 246, 0.25);
+  --grad-4: rgba(139, 92, 246, 0.25);
+  --glass-bg: rgba(15, 23, 42, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  --primary-glow: rgba(99, 102, 241, 0.25);
 }
 
 /* Core breathing animation */
@@ -72,7 +72,7 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px); /* Creates the shiny glow effect */
-  opacity: 0.6;
+  opacity: 0.85;
   z-index: -1;
   pointer-events: none;
 }
@@ -98,13 +98,37 @@ body {
 /* Glassmorphism Cards */
 .card, .dream-card {
   background: var(--glass-bg) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
   border: 1px solid var(--glass-border) !important;
-  box-shadow: var(--glass-shadow) !important;
+  border-top-color: rgba(255, 255, 255, 0.8) !important;
+  border-left-color: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: var(--glass-shadow), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
   border-radius: 24px !important;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   overflow: hidden;
+}
+
+html[data-theme='dark'] .card, html[data-theme='dark'] .dream-card {
+  border-top-color: rgba(255, 255, 255, 0.2) !important;
+  border-left-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: var(--glass-shadow), inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Glass Navigation Bar */
+.glass-nav {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid var(--glass-border) !important;
+  border-top-color: rgba(255, 255, 255, 0.5) !important;
+  border-left-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+html[data-theme='dark'] .glass-nav {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+  border-left-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Immersive Hover Effects */
@@ -164,4 +188,88 @@ body {
   .suggested-posts-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Glass Buttons */
+.glass-btn {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(236, 72, 153, 0.4)) !important;
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.glass-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(236, 72, 153, 0.6)) !important;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+html[data-theme='dark'] .glass-btn {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2)) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme='dark'] .glass-btn:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(236, 72, 153, 0.4)) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Explodal Core Styles */
+.ui--modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the pop */
+  opacity: 0;
+  pointer-events: none;
+  transition: all 260ms 260ms ease-in-out;
+  z-index: 9999;
+}
+
+.ui--modal > div:first-child {
+  position: relative;
+  /* Appearance relies on inline classes now, just handle the pop animation */
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 260ms 0ms cubic-bezier(0.97, 0.33, 0, -0.1);
+  z-index: 10000;
+}
+
+.ui--modal .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  /* Optional: slight dim to make explosion pop */
+  background: rgba(0,0,0,0.2);
+}
+
+.ui--modal .bg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.ui--modal:target {
+  opacity: 1;
+  pointer-events: all;
+  transition: all 260ms 0ms ease-in-out;
+}
+
+.ui--modal:target > div:first-child {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 200ms 300ms cubic-bezier(0.97, 0.33, 0, -0.1);
 }
